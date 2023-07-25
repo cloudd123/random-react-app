@@ -8,13 +8,14 @@ function App() {
     },
     {
       name: "mew",
-    },
+      imgSrc:""
+    }
   ];
 
   return (
     <>
       <div>
-        <PokemonCard pokemonList={pokemonList} />
+        <PokemonCard {...pokemonList[0]} />
       </div>
     </>
   );

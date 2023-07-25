@@ -1,18 +1,17 @@
-function PokemonCard(props) {
-    const pokemon = props.pokemonList[0];
+function PokemonCard({name, imgSrc}) {
   
-    if (pokemon.name === "bulbasaur") {
+    if (name === "bulbasaur") {
       return (
         <figure>
-          <img src={pokemon.imgSrc} alt="bulbasaur" />
-          <figcaption>{pokemon.name}</figcaption>
+          <img src={imgSrc} alt="bulbasaur" />
+          <figcaption>{name}</figcaption>
         </figure>
       );
     } else {
       return (
         <figure>
           <p>???</p>
-          <figcaption>{pokemon.name}</figcaption>
+          <figcaption>{name}</figcaption>
         </figure>
       );
     }
