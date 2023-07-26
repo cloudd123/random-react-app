@@ -1,17 +1,17 @@
 import PropTypes from "prop-types";
 
 function PokemonCard({ pokemonList }) {
-  if (pokemonList.name === "bulbasaur") {
+  if (pokemonList.name === "mew") {
     return (
       <figure>
-        <img src={pokemonList.imgSrc} alt="bulbasaur" />
+        <p>???</p>
         <figcaption>{pokemonList.name}</figcaption>
       </figure>
     );
   } else {
     return (
       <figure>
-        <p>???</p>
+        <img src={pokemonList.imgSrc} alt={pokemonList.name} />
         <figcaption>{pokemonList.name}</figcaption>
       </figure>
     );
