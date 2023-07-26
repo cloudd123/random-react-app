@@ -5,7 +5,14 @@ function NavBar({ pokemonList, setPokemon }) {
     setPokemon((prevPokemon) => {
       const currentIndex = pokemonList.findIndex((item) => item.name === prevPokemon.name);
       const previousPokemonIndex = (currentIndex - 1 + pokemonList.length) % pokemonList.length;
-      return { ...pokemonList[previousPokemonIndex] };
+      const previousPokemon = { ...pokemonList[previousPokemonIndex] };
+
+      // Show the "pika pikachu!!!" alert when the chosen pokemon becomes "pikachu"
+      if (previousPokemon.name === "pikachu") {
+        alert("pika pikachu!!!");
+      }
+
+      return previousPokemon;
     });
   };
 
@@ -13,9 +20,21 @@ function NavBar({ pokemonList, setPokemon }) {
     setPokemon((prevPokemon) => {
       const currentIndex = pokemonList.findIndex((item) => item.name === prevPokemon.name);
       const nextPokemonIndex = (currentIndex + 1) % pokemonList.length;
-      return { ...pokemonList[nextPokemonIndex] };
+      const nextPokemon = { ...pokemonList[nextPokemonIndex] };
+
+      // Show the "pika pikachu!!!" alert when the chosen pokemon becomes "pikachu"
+      if (nextPokemon.name === "pikachu") {
+        alert("pika pikachu!!!");
+      }
+
+      return nextPokemon;
     });
   };
+  
+
+
+
+
 
   return (
     <div>

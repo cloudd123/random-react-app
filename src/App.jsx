@@ -1,5 +1,5 @@
 import PokemonCard from './components/PokemonCard';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import NavBar from './components/NavBar'
   
 function App() {
@@ -28,7 +28,16 @@ function App() {
       name: "mew",
     },
   ];
-  const [pokemon, setPokemon] = useState({ ...pokemonList[3] }); 
+  const [pokemon, setPokemon] = useState({ ...pokemonList[1] }); 
+
+ 
+
+  useEffect(
+    () => {
+    alert("hello pokemon trainer :)");
+  }, 
+  []
+  );
 
   return (
     <>
