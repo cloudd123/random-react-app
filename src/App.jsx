@@ -1,5 +1,6 @@
 import PokemonCard from './components/PokemonCard';
 import { useState } from 'react';
+import NavBar from './components/NavBar'
   
 function App() {
   const pokemonList = [
@@ -27,26 +28,13 @@ function App() {
       name: "mew",
     },
   ];
-  
-  const [pokemon, setPokemon] = useState({ ...pokemonList[3] }); // Changed "setUser" to "setPokemon"
-  
-  const previousButton = () => {
-    const currentIndex = pokemonList.findIndex((item) => item.name === pokemon.name);
-    const previousPokemonIndex = (currentIndex - 1 + pokemonList.length) % pokemonList.length;
-    setPokemon({ ...pokemonList[previousPokemonIndex] });
-  }
-  const nextButton = () => {
-    const currentIndex = pokemonList.findIndex((item) => item.name === pokemon.name);
-    const previousPokemonIndex = (currentIndex + 1 + pokemonList.length) % pokemonList.length;
-    setPokemon({ ...pokemonList[previousPokemonIndex] });
-  }
-  
+  const [pokemon, setPokemon] = useState({ ...pokemonList[3] }); 
+
   return (
     <>
       <div>
-        <PokemonCard pokemonList={pokemon} /> 
-        <button onClick={previousButton}>Previous</button> 
-        <button onClick={nextButton}>next</button> 
+        <PokemonCard pokemonList={pokemon} />
+        <NavBar pokemonList={pokemonList} setPokemon={setPokemon} />
       </div>
     </>
   );
