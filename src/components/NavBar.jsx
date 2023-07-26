@@ -1,27 +1,23 @@
 import PropTypes from "prop-types";
 
 function NavBar({ pokemonList, setPokemon }) {
-  const previousButton = () => {
-    setPokemon((prevPokemon) => {
-      const currentIndex = pokemonList.findIndex((item) => item.name === prevPokemon.name);
-      const previousPokemonIndex = (currentIndex - 1 + pokemonList.length) % pokemonList.length;
-      return { ...pokemonList[previousPokemonIndex] };
-    });
-  };
+  const handleButtonClick = (selectedPokemon) => {
+    setPokemon(selectedPokemon);
 
-  const nextButton = () => {
-    setPokemon((prevPokemon) => {
-      const currentIndex = pokemonList.findIndex((item) => item.name === prevPokemon.name);
-      const nextPokemonIndex = (currentIndex + 1) % pokemonList.length;
-      return { ...pokemonList[nextPokemonIndex] };
-    });
+    // Show the "pika pikachu!!!" alert when the chosen pokemon becomes "pikachu"
+    if (selectedPokemon.name === "pikachu") {
+      alert("pika pikachu!!!");
+    }
   };
 
   return (
-    <div>
-      <button onClick={previousButton}>Previous</button>
-      <button onClick={nextButton}>Next</button>
-    </div>
+    <>
+      {pokemonList.map((pokemon) => (
+        <button key={pokemon.name} onClick={() => handleButtonClick(pokemon)}>
+          {pokemon.name}
+        </button>
+      ))}
+    </>
   );
 }
 
